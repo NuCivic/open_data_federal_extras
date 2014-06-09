@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Installation file for ODFE.
+ */
+
+/**
+ * Sets select list for field_odfe_bureau_code. 
+ */
+function odfe_update_7001() {
+  $ret = array();
+  if (!db_table_exists('field_data_field_odfe_bureau_code')) {
+    $out = array(
+      '#abort' => array(
+        'success' => FALSE,
+        'query' => t("The field_odfe_bureau_code table doesn\'t exist yet.)."),
+      ),
+    );
+    return $out;
+  }
+
+  $field_odfe_bureau_code = field_info_field('field_odfe_bureau_code');
+  unset($field_odfe_bureau_code['settings']['allowed_values']);
+  $field_odfe_bureau_code['settings']['allowed_values_function'] = 'field_odfe_bureau_code_allowed_values';
+  field_update_field($field_odfe_bureau_code);
+  return $ret;
+}

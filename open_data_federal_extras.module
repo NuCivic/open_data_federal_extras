@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Extends DKAN Dataset to include Federal level compliance items.
+ */
+
+/**
+ * Implements allowed_values_function for field_odfe_bureau_code.
+ */
+function field_odfe_bureau_code_allowed_values() {
+  include_once 'fed_bureau_code_list/federal_inventory_list.php';
+  return $federal_inventory_small_list;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function odfe_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+    case 'dataset_node_form':
+      //include_once 'fed_bureau_code_list/federal_inventory_list.php';
+      //$form['field_odfe_bureau_code']['und']['#options']['wtf'] = 'doit';
+      break;
+  }
+}
