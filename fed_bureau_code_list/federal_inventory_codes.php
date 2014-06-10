@@ -2,7 +2,7 @@
 
   /**
    * @file
-   * Array of federal agencies produced by Federal Inventory Program.
+   * Array of federal agency codes produced by Federal Inventory Program.
    * @see http://project-open-data.github.io/schema/#programCode
    */
 

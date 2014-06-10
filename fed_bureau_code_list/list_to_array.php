@@ -5,12 +5,48 @@
  * Script for changing csv file of federal agencies to an array.
  */
 
-const OPFE_CSV_FILE_NAME = 'Program Code Inventory-Table 1.csv';
+const OPFE_CSV_CODES_FILE_NAME = 'Program Code Inventory-Table 1.csv';
+const OPFE_CSV_AGENCY_FILE_NAME = 'Sheet2-Table 1.csv';
 
 /**
  * Processes csv file.
  */
 function opfe_list_to_array_process() {
+  opfe_list_to_array_process_codes();
+  opfe_list_to_array_process_agencies();
+}
+
+/**
+ * Export code files.
+ */
+function opfe_list_to_array_process_agencies() {
+  $records = opfe_list_to_array_read_file(OPFE_CSV_AGENCY_FILE_NAME);
+  $headers = array_shift($records);
+  $file = '<?php
+
+  /**
+   * @file
+   * Array of federal agencies produced by Federal Inventory Program.
+   * @see http://project-open-data.github.io/schema/#programCode
+   */
+
+  $federal_inventory_agency_list = ';
+  $list = array();
+  foreach ($records as $key => $record) {
+    foreach ($headers as $header_key => $header) {
+      // Bureau code is the key.
+      if ($record[1]) {
+        $result[$record[1]] = $record[0];
+      }
+    }
+  }
+  file_put_contents('federal_inventory_agencies.php', $file . var_export($result, TRUE) . ';');
+}
+
+/**
+ * Export code files.
+ */
+function opfe_list_to_array_process_codes() {
   $records = opfe_list_to_array_read_file();
   opfe_list_to_array_validate_file($records[0]);
   $headers = array_shift($records);
@@ -18,7 +54,7 @@ function opfe_list_to_array_process() {
 
   /**
    * @file
-   * Array of federal agencies produced by Federal Inventory Program.
+   * Array of federal agency codes produced by Federal Inventory Program.
    * @see http://project-open-data.github.io/schema/#programCode
    */
 
@@ -48,7 +84,7 @@ function opfe_list_to_array_process() {
 /**
  * Reads csv file.
  */
-function opfe_list_to_array_read_file($csv = OPFE_CSV_FILE_NAME) {
+function opfe_list_to_array_read_file($csv = OPFE_CSV_CODES_FILE_NAME) {
   $file_handle = fopen($csv, "r");
   $records = array();
   $i = 0;

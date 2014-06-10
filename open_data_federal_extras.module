@@ -14,13 +14,57 @@ function field_odfe_bureau_code_allowed_values() {
 }
 
 /**
+ * Implements hook_menu().
+ */
+function open_data_federal_extras_menu() {
+  $items = array();
+
+  // Put your menu items here.
+  $items['admin/dkan/bureu_agency'] = array(
+    'title' => 'Selected Agency',
+    'description' => 'Select an agency to limit form choices.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('open_data_federal_extras_agency_form'),
+    'access arguments' => array('administer site configuration'),
+  );
+
+  return $items;
+}
+
+/**
+ * Callback for selected agency form.
+ */
+function open_data_federal_extras_agency_form($form, $form_state) {
+  $form = array();
+  include_once 'fed_bureau_code_list/federal_inventory_agencies.php';
+  $options = array('' => t('All agencies')) + $federal_inventory_agency_list;
+  $form['open_data_federal_extras_agency'] = array(
+    '#type' => 'select',
+    '#title' => t('Select an Agency.'),
+    '#options' => $options,
+    '#description' => t('Select an agency to be used for the Bureau Code field on the Dataset node.'),
+    '#default_value' => variable_get('open_data_federal_extras_agency', ''),
+  );
+  return system_settings_form($form);
+}
+
+/**
  * Implements hook_form_alter().
  */
-function odfe_form_alter(&$form, $form_state, $form_id) {
+function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
   switch ($form_id) {
     case 'dataset_node_form':
-      //include_once 'fed_bureau_code_list/federal_inventory_list.php';
-      //$form['field_odfe_bureau_code']['und']['#options']['wtf'] = 'doit';
+      if ($agency = variable_get('open_data_federal_extras_agency')) {
+        $options = $form['field_odfe_bureau_code']['und']['#options'];
+        $concat_options = array();
+        foreach ($options as $key => $value) {
+          $pattern = '/^' . $agency . '-[\d]/';
+          if (preg_match($pattern, $key)) {
+            $concat_options[$key] = $value;
+          }
+        }
+        $form['field_odfe_bureau_code']['und']['#options'] = $concat_options;
+      }
       break;
   }
 }
