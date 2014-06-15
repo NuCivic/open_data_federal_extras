@@ -1,5 +1,14 @@
-name =  Open Data Federal Agency Extras
+name = Open Data Federal Agency Extras
 description = Extends DKAN for Federal level compliance items.
 core = 7.x
 package = DKAN
 version = 7.x-1.x
+dependencies[] = dkan_dataset_content_types
+dependencies[] = features
+dependencies[] = link
+dependencies[] = list
+features[features_api][] = api:2
+features[field_base][] = field_odfe_bureau_code
+features[field_base][] = field_odfe_landing_page
+features[field_instance][] = node-dataset-field_odfe_bureau_code
+features[field_instance][] = node-dataset-field_odfe_landing_page

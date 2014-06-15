@@ -3,6 +3,11 @@ Open Data Federal Agency Extras module
 
 Open Data Federal Agency Extras module. Extends DKAN Dataset to include selected Project Open Data and other federal requirements
 
+## Additional Fields
+
+ * Bureau Code
+ * Landing Page
+
 ### Requirements
 Requires DKAN Dataset module.
 
