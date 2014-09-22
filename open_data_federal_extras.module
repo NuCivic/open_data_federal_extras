@@ -8,11 +8,18 @@
 /**
  * Implements allowed_values_function for field_odfe_bureau_code.
  */
-function field_odfe_bureau_code_allowed_values() {
-  include_once 'fed_bureau_code_list/federal_inventory_list.php';
+function field_odfe_program_code_allowed_values() {
+  include 'fed_program_code_list/federal_inventory_list.php';
   return $federal_inventory_small_list;
 }
 
+/**
+ * Implements allowed_values_function for field_odfe_bureau_code.
+ */
+function field_odfe_bureau_code_allowed_values() {
+  include 'fed_bureau_code_list/omb-agency-bureau-treasury-codes.php';
+  return $bureau_codes;
+}
 /**
  * Implements hook_menu().
  */
@@ -36,7 +43,7 @@ function open_data_federal_extras_menu() {
  */
 function open_data_federal_extras_agency_form($form, $form_state) {
   $form = array();
-  include_once 'fed_bureau_code_list/federal_inventory_agencies.php';
+  include 'fed_program_code_list/federal_inventory_agencies.php';
   $options = array('' => t('All agencies')) + $federal_inventory_agency_list;
   $form['open_data_federal_extras_agency'] = array(
     '#type' => 'select',
@@ -55,18 +62,30 @@ function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
   switch ($form_id) {
     case 'dataset_node_form':
       if ($agency_code = variable_get('open_data_federal_extras_agency')) {
-        include_once 'fed_bureau_code_list/federal_inventory_agencies.php';
+        include 'fed_bureau_code_list/federal_inventory_agencies.php';
         $options = $form['field_odfe_bureau_code']['und']['#options'];
         $concat_options = array();
         foreach ($options as $key => $value) {
           $pattern = '/^' . $agency_code . '-[\d]/';
           if (preg_match($pattern, $key)) {
             $agency_name = $federal_inventory_agency_list[$agency_code];
-            $value = str_replace($agency_name . ' - ', '', $value);
+            $value = str_replace($agency_name . ' - ', ' ', $value);
             $concat_options[$key] = $value;
           }
         }
         $form['field_odfe_bureau_code']['und']['#options'] = $concat_options;
+
+        $options = $form['field_odfe_program_code']['und']['#options'];
+        $concat_options = array();
+        foreach ($options as $key => $value) {
+          $pattern = '/^' . $agency_code . '-[\d]/';
+          if (preg_match($pattern, $key)) {
+            $agency_name = $federal_inventory_agency_list[$agency_code];
+            $value = str_replace($agency_name . ' - ', ' ', $value);
+            $concat_options[$key] = $value;
+          }
+        }
+        $form['field_odfe_program_code']['und']['#options'] = $concat_options;
       }
       break;
   }
