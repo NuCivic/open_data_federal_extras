@@ -43,7 +43,8 @@ function open_data_federal_extras_menu() {
  */
 function open_data_federal_extras_agency_form($form, $form_state) {
   $form = array();
-  include 'fed_program_code_list/federal_inventory_agencies.php';
+  $path = drupal_get_path('module', 'open_data_federal_extras');
+  include $path . '/fed_program_code_list/federal_inventory_agencies.php';
   $options = array('' => t('All agencies')) + $federal_inventory_agency_list;
   $form['open_data_federal_extras_agency'] = array(
     '#type' => 'select',
@@ -62,7 +63,8 @@ function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
   switch ($form_id) {
     case 'dataset_node_form':
       if ($agency_code = variable_get('open_data_federal_extras_agency')) {
-        include 'fed_bureau_code_list/federal_inventory_agencies.php';
+        $path = drupal_get_path('module', 'open_data_federal_extras');
+        include $path . '/fed_program_code_list/federal_inventory_agencies.php';
         $options = $form['field_odfe_bureau_code']['und']['#options'];
         $concat_options = array();
         foreach ($options as $key => $value) {
