@@ -49,7 +49,7 @@ function open_data_federal_extras_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 27,
+      'weight' => 29,
     ),
   );
 
@@ -108,7 +108,7 @@ function open_data_federal_extras_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 25,
+      'weight' => 8,
     ),
   );
 
@@ -151,7 +151,7 @@ function open_data_federal_extras_field_default_field_instances() {
         'apply_chosen' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 26,
+      'weight' => 30,
     ),
   );
 
