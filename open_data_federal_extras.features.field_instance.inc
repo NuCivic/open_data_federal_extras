@@ -115,11 +115,7 @@ function open_data_federal_extras_field_default_field_instances() {
   // Exported field_instance: 'node-dataset-field_odfe_program_code'
   $field_instances['node-dataset-field_odfe_program_code'] = array(
     'bundle' => 'dataset',
-    'default_value' => array(
-      0 => array(
-        'value' => '005-003',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Adds Program Code, "Required If-Applicable" field for <a href="http://project-open-data.github.io/schema/#common-core-required-if-applicable-fields">Project Open Data</a>.',
     'display' => array(
