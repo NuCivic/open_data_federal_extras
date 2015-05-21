@@ -73,8 +73,8 @@ function opfe_list_to_array_process_codes() {
   foreach ($records as $key => $record) {
     foreach ($headers as $header_key => $header) {
       // Bureau code is the key.
-      $full_result[$record[4]][$header] = $record[$header_key];
-      $small_result[$record[4]] = $record[4] . ' - ' . $record[0] . ' - ' . $record[1];
+      $full_result[$record[5]][$header] = $record[$header_key];
+      $small_result[$record[5]] = $record[5] . ' - ' . $record[0] . ' - ' . $record[1];
     }
   }
   file_put_contents('federal_inventory_codes.php', $full_file . var_export($full_result, TRUE) . ';');

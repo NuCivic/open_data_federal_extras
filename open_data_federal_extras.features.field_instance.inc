@@ -13,11 +13,7 @@ function open_data_federal_extras_field_default_field_instances() {
   // Exported field_instance: 'node-dataset-field_odfe_bureau_code'
   $field_instances['node-dataset-field_odfe_bureau_code'] = array(
     'bundle' => 'dataset',
-    'default_value' => array(
-      0 => array(
-        'value' => '184-015',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Adds Bureau Code, "Required If-Applicable" field for <a href="http://project-open-data.github.io/schema/#common-core-required-if-applicable-fields">Project Open Data</a>.',
     'display' => array(
@@ -26,7 +22,7 @@ function open_data_federal_extras_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 24,
+        'weight' => 30,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -49,7 +45,7 @@ function open_data_federal_extras_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 27,
+      'weight' => 28,
     ),
   );
 
@@ -62,10 +58,9 @@ function open_data_federal_extras_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 21,
+        'type' => 'hidden',
+        'weight' => 37,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -108,18 +103,14 @@ function open_data_federal_extras_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 25,
+      'weight' => 34,
     ),
   );
 
   // Exported field_instance: 'node-dataset-field_odfe_program_code'
   $field_instances['node-dataset-field_odfe_program_code'] = array(
     'bundle' => 'dataset',
-    'default_value' => array(
-      0 => array(
-        'value' => '005-003',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Adds Program Code, "Required If-Applicable" field for <a href="http://project-open-data.github.io/schema/#common-core-required-if-applicable-fields">Project Open Data</a>.',
     'display' => array(
@@ -128,7 +119,7 @@ function open_data_federal_extras_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 23,
+        'weight' => 31,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -151,7 +142,7 @@ function open_data_federal_extras_field_default_field_instances() {
         'apply_chosen' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 26,
+      'weight' => 27,
     ),
   );
 
