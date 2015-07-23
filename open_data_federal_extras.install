@@ -6,6 +6,14 @@
  */
 
 /**
+ * Implements hook_install().
+ */
+function open_data_federal_extras_install() {
+  // Updates values for field_frequency.
+  open_data_federal_extras_update_field_frequency();
+}
+
+/**
  * Sets select list for field_odfe_bureau_code.
  */
 function open_data_federal_extras_update_7001() {
@@ -28,7 +36,7 @@ function open_data_federal_extras_update_7001() {
 }
 
 /**
- * Updates existing values to use the colon format rather than dashes
+ * Updates existing values to use the colon format rather than dashes.
  */
 function open_data_federal_extras_update_7002() {
   // Allowed values have been changed, so change existing values as well
@@ -44,4 +52,11 @@ function open_data_federal_extras_update_7002() {
   $sql = "UPDATE field_revision_field_odfe_bureau_code
           SET field_odfe_bureau_code_value = REPLACE(field_odfe_bureau_code_value, '-', ':')";
   $result = db_query($sql);
+}
+
+/**
+ * Updates values for field_frequency.
+ */
+function open_data_federal_extras_update_7003() {
+  open_data_federal_extras_update_field_frequency();
 }
