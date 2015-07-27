@@ -321,17 +321,14 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
 
     // Get the schema and data as objects
     $retriever = new JsonSchema\Uri\UriRetriever;
-    $schemaFile = __FILE__;
-    $schemaFile = substr($schemaFile, 0, - strlen("features/bootstrap/FeatureContext.php"));
-    $schemaFile = $schemaFile . 'schema/federal-v1.1/dataset.json';
-    var_dump($schemaFile);
-    $schema = $retriever->retrieve('file://' . $schemaFile);
+    $schemaFolder = substr(__FILE__, 0, - strlen("features/bootstrap/FeatureContext.php")) . 'schema/federal-v1.1';
+    $schema = $retriever->retrieve('file://' . $schemaFolder . '/catalog.json');
     $data = json_decode(file_get_contents($url . '/data.json'));
 
     // If you use $ref or if you are unsure, resolve those references here
     // This modifies the $schema object
-    //$refResolver = new JsonSchema\RefResolver($retriever);
-    //$refResolver->resolve($schema, 'file://' . __DIR__);
+    $refResolver = new JsonSchema\RefResolver($retriever);
+    $refResolver->resolve($schema, 'file://' . $schemaFolder . '/');
 
     // Validate
     $validator = new JsonSchema\Validator();
