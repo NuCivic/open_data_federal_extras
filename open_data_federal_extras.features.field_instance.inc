@@ -328,7 +328,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_odfe_landing_page',
-    'label' => 'Home Page URL',
+    'label' => 'Homepage URL',
     'required' => 0,
     'settings' => array(
       'attributes' => array(
@@ -541,7 +541,7 @@ function open_data_federal_extras_field_default_field_instances() {
   t('Data Dictionary Type');
   t('Data Quality');
   t('Data Standard');
-  t('Home Page URL');
+  t('Homepage URL');
   t('Indicates whether a dataset conforms to the agency’s information quality guidelines.');
   t('Is Part Of');
   t('Language');

@@ -319,20 +319,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function validateJson() {
     $url = $this->getMinkParameter('base_url');
 
-    // Get the schema and data as objects
-    $retriever = new JsonSchema\Uri\UriRetriever;
-    $schemaFolder = substr(__FILE__, 0, - strlen("features/bootstrap/FeatureContext.php")) . 'schema/federal-v1.1';
-    $schema = $retriever->retrieve('file://' . $schemaFolder . '/catalog.json');
-    $data = json_decode(file_get_contents($url . '/data.json'));
-
-    // If you use $ref or if you are unsure, resolve those references here
-    // This modifies the $schema object
-    $refResolver = new JsonSchema\RefResolver($retriever);
-    $refResolver->resolve($schema, 'file://' . $schemaFolder . '/');
-
-    // Validate
-    $validator = new JsonSchema\Validator();
-    $validator->check($data, $schema);
+    $validator = open_data_schema_pod_validate($url);
 
     if ($validator->isValid()) {
         echo "The supplied JSON validates against the schema.\n";
