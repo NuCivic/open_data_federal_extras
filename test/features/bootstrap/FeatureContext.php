@@ -15,6 +15,17 @@ use Behat\Behat\Tester\Exception\PendingException;
  * Defines application features from the specific context.
  */
 class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext {
+  
+    /**
+   * Change /data.json path to /json during tests.
+   */
+  protected function fixJsonEndpoint() {
+    $data_json = open_data_schema_map_api_load('data_json_1_1');
+    $data_json->endpoint = 'datajson';
+    drupal_write_record('open_data_schema_map', $data_json, 'id');
+    drupal_static_reset('open_data_schema_map_api_load_all');
+    menu_rebuild();
+  }
 
   /**
    * @Then I should see all of the POD fields
@@ -319,15 +330,16 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function validateJson() {
     $url = $this->getMinkParameter('base_url');
 
-    $validator = open_data_schema_pod_validate($url);
+    $validator = open_data_schema_pod_process_validate($url . '/datajson');
 
-    if ($validator->isValid()) {
-        echo "The supplied JSON validates against the schema.\n";
+    if (!$validator['total_errors']) {
+        return TRUE;
     } else {
         echo "JSON does not validate. Violations:\n";
-        foreach ($validator->getErrors() as $error) {
-            echo sprintf("[%s] %s\n", $error['property'], $error['message']);
+        foreach ($validator['errors'] as $error) {
+          echo sprintf("[%s] %s\n", $error['property'], $error['error']);
         }
+        return FALSE;
     }
   }
 
@@ -336,8 +348,10 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
    */
   public function iShouldFindADataJsonFileThatPassesPodSchemaValidator($arg1)
   {
-      $this->validateJson();
-      throw new PendingException();
+      $this->fixJsonEndpoint();
+      if (!$this->validateJson()) {
+        throw new Exception("Data.json is not valid.");
+      };
   }
 
   /**

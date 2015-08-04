@@ -5,7 +5,7 @@ Feature: Project Open Data Feature
 
   @api
   Scenario: Know that data.json file is valid
-    Given I visit "data.json"
+    Given I am an anonymous user
     Then I should find a data.json file that passes POD 1.1 schema validator
 
   @api

@@ -43,10 +43,10 @@ default:
 local-vm:
   extensions:
     Behat\MinkExtension:
-      base_url: http://dkan.7.x-1.x
+      base_url: http://odfe-test.local
     Drupal\DrupalExtension:
       drupal:
-        drupal_root: /var/www/dkan/7.x-1.x/docroot
+        drupal_root: /var/www/odfe-test
       drush:
         alias: '@self'
-        root: /var/www/dkan/7.x-1.x/docroot
+        root: /var/www/odfe-test
