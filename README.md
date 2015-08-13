@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/NuCivic/open_data_federal_extras.svg?branch=master)](https://travis-ci.org/NuCivic/open_data_federal_extras)
+
 Open Data Federal Agency Extras module
 ========================
 
