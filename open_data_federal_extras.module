@@ -74,7 +74,7 @@ function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
         $options = $form['field_odfe_bureau_code']['und']['#options'];
         $concat_options = array('_none' => $options['_none']);
         foreach ($options as $key => $value) {
-          $pattern = '/^' . $agency_code . '-[\d]/';
+          $pattern = '/^' . $agency_code . '\:[\d]/';
           if (preg_match($pattern, $key)) {
             $agency_name = $federal_inventory_agency_list[$agency_code];
             $value = str_replace($agency_name . ' - ', ' ', $value);
@@ -86,7 +86,7 @@ function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
         $options = $form['field_odfe_program_code']['und']['#options'];
         $concat_options = array();
         foreach ($options as $key => $value) {
-          $pattern = '/^' . $agency_code . '-[\d]/';
+          $pattern = '/^' . $agency_code . '\:[\d]/';
           if (preg_match($pattern, $key)) {
             $agency_name = $federal_inventory_agency_list[$agency_code];
             $value = str_replace($agency_name . ' - ', ' ', $value);
