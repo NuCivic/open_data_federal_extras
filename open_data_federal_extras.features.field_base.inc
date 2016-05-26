@@ -247,26 +247,20 @@ function open_data_federal_extras_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_language',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
+    'foreign keys' => array(),
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'list',
     'settings' => array(
-      'max_length' => 12,
+      'allowed_values' => array(),
+      'allowed_values_function' => 'field_odfe_language_allowed_values',
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_odfe_program_code'
