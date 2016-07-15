@@ -95,6 +95,10 @@ function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
         }
         $form['field_odfe_program_code']['und']['#options'] = $concat_options;
       }
+
+      // Hide 'Is part of' field.
+      // This field is not really usable by a user as is and is mostly enabled for harvester support.
+      $form['field_odfe_is_part_of']['#access'] = FALSE;
       break;
   }
 }
