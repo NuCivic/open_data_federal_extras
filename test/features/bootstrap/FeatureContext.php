@@ -46,7 +46,6 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       'dataQualityUSG' => 'Data Quality',
       'describedBy' => 'Data Dictionary',
       'describedByType' => 'Data Dictionary Type',
-      'isPartOf' => 'Collection',
       //'issued' => 'Release Date',
       'language' => 'Language',
       'landingPage' => 'Homepage URL',
