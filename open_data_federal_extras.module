@@ -80,29 +80,34 @@ function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
       if ($agency_code = variable_get('open_data_federal_extras_agency')) {
         $path = drupal_get_path('module', 'open_data_federal_extras');
         include $path . '/fed_program_code_list/federal_inventory_agencies.php';
-        $options = $form['field_odfe_bureau_code']['und']['#options'];
-        $concat_options = array('_none' => $options['_none']);
+        $options = $form['field_odfe_bureau_code'][LANGUAGE_NONE]['#options'];
+        $concat_options = array();
+        $nsf = "422";
+        $pattern = '/^' . $agency_code . '|' . $nsf . '\:[\d]/';
+        $agency_name[] = $federal_inventory_agency_list[$agency_code];
+        $agency_name[] = $federal_inventory_agency_list[$nsf];
         foreach ($options as $key => $value) {
-          $pattern = '/^' . $agency_code . '\:[\d]/';
           if (preg_match($pattern, $key)) {
-            $agency_name = $federal_inventory_agency_list[$agency_code];
-            $value = str_replace($agency_name . ' - ', ' ', $value);
+            $value = str_replace($agency_name[0] . ' - ', '', $value);
+            $value = str_replace($agency_name[1] . ' - ', '', $value);
             $concat_options[$key] = $value;
           }
         }
-        $form['field_odfe_bureau_code']['und']['#options'] = $concat_options;
+        ksort($concat_options);
+        $concat_options = array('_none' => $options['_none']) + $concat_options;
+        $form['field_odfe_bureau_code'][LANGUAGE_NONE]['#options'] = $concat_options;
 
-        $options = $form['field_odfe_program_code']['und']['#options'];
+        $options = $form['field_odfe_program_code'][LANGUAGE_NONE]['#options'];
         $concat_options = array();
         foreach ($options as $key => $value) {
-          $pattern = '/^' . $agency_code . '\:[\d]/';
           if (preg_match($pattern, $key)) {
-            $agency_name = $federal_inventory_agency_list[$agency_code];
-            $value = str_replace($agency_name . ' - ', ' ', $value);
+            $value = str_replace($agency_name[0] . ' - ', '', $value);
+            $value = str_replace($agency_name[1] . ' - ', '', $value);
             $concat_options[$key] = $value;
           }
         }
-        $form['field_odfe_program_code']['und']['#options'] = $concat_options;
+        ksort($concat_options);
+        $form['field_odfe_program_code'][LANGUAGE_NONE]['#options'] = $concat_options;
       }
 
       // Hide 'Is part of' field.
