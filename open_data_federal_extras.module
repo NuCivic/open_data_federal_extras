@@ -12,6 +12,15 @@ include_once 'open_data_federal_extras.features.inc';
  */
 
 /**
+ * Implements allowed_values_function for field_odfe_language.
+ */
+function field_odfe_language_allowed_values() {
+  include 'language_code_list/language_code_list.php';
+  return $language_codes;
+}
+
+
+/**
  * Implements allowed_values_function for field_odfe_bureau_code.
  */
 function field_odfe_program_code_allowed_values() {

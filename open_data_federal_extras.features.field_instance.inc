@@ -218,7 +218,7 @@ function open_data_federal_extras_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'apply_chosen' => 0,
+        'apply_chosen' => 1,
       ),
       'type' => 'options_select',
       'weight' => 30,
@@ -368,9 +368,9 @@ function open_data_federal_extras_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'list_default',
         'weight' => 13,
       ),
       'teaser' => array(
@@ -390,11 +390,11 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'options',
       'settings' => array(
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
-      'type' => 'text_textfield',
+      'type' => 'options_select',
       'weight' => 32,
     ),
   );
@@ -431,7 +431,7 @@ function open_data_federal_extras_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'apply_chosen' => 0,
+        'apply_chosen' => 1,
       ),
       'type' => 'options_select',
       'weight' => 26,
