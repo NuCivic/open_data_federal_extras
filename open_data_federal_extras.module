@@ -108,7 +108,11 @@ function open_data_federal_extras_form_alter(&$form, $form_state, $form_id) {
       // Hide 'Is part of' field.
       // This field is not really usable by a user as is and is mostly enabled for harvester support.
       $form['field_odfe_is_part_of']['#access'] = FALSE;
+
+      // Hide the 'false' option on the Data Quality field.
+      unset($form['field_odfe_data_quality']['und']['#options']['false']);
       break;
+
   }
 }
 
@@ -183,5 +187,18 @@ function open_data_federal_extras_field_default_field_bases_alter(&$fields) {
       5 => 'Irregularly',
     );
     $fields['field_frequency']['settings']['allowed_values'] = $old_values + open_data_federal_extras_iso_frequency();
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function open_data_federal_extras_preprocess_field(&$vars) {
+  if($vars['element']['#field_name'] == 'field_odfe_data_quality') {
+    // If the selected Data Quality option is true, change the markup to just read 'True'.
+    if($vars['items'][0]['#markup'] == 'Meets agency’s Information Quality Guidelines') {
+      $vars['items'][0]['#markup'] = 'True';
+    }
+    return;
   }
 }
