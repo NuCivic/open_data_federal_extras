@@ -10,7 +10,7 @@
 function open_data_federal_extras_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-dataset-field_odfe_bureau_code'
+  // Exported field_instance: 'node-dataset-field_odfe_bureau_code'.
   $field_instances['node-dataset-field_odfe_bureau_code'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -23,6 +23,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 6,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -49,7 +55,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_category'
+  // Exported field_instance: 'node-dataset-field_odfe_category'.
   $field_instances['node-dataset-field_odfe_category'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -62,6 +68,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 15,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -92,7 +104,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_conforms_to'
+  // Exported field_instance: 'node-dataset-field_odfe_conforms_to'.
   $field_instances['node-dataset-field_odfe_conforms_to'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -106,6 +118,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 10,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -118,6 +136,7 @@ function open_data_federal_extras_field_default_field_instances() {
     'label' => 'Data Standard',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -131,6 +150,7 @@ function open_data_federal_extras_field_default_field_instances() {
       'enable_tokens' => 0,
       'rel_remove' => 'default',
       'title' => 'none',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 255,
       'title_value' => '',
       'url' => 0,
@@ -146,7 +166,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_data_dictionary_type'
+  // Exported field_instance: 'node-dataset-field_odfe_data_dictionary_type'.
   $field_instances['node-dataset-field_odfe_data_dictionary_type'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -159,6 +179,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 17,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -186,12 +212,12 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_data_quality'
+  // Exported field_instance: 'node-dataset-field_odfe_data_quality'.
   $field_instances['node-dataset-field_odfe_data_quality'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Indicates whether a dataset conforms to the agency’s information quality guidelines.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -199,6 +225,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 11,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -220,12 +252,12 @@ function open_data_federal_extras_field_default_field_instances() {
       'settings' => array(
         'apply_chosen' => 1,
       ),
-      'type' => 'options_select',
+      'type' => 'options_buttons',
       'weight' => 30,
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_investment_uii'
+  // Exported field_instance: 'node-dataset-field_odfe_investment_uii'.
   $field_instances['node-dataset-field_odfe_investment_uii'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -238,6 +270,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 14,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -265,7 +303,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_is_part_of'
+  // Exported field_instance: 'node-dataset-field_odfe_is_part_of'.
   $field_instances['node-dataset-field_odfe_is_part_of'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -278,6 +316,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 12,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -305,7 +349,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_landing_page'
+  // Exported field_instance: 'node-dataset-field_odfe_landing_page'.
   $field_instances['node-dataset-field_odfe_landing_page'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -319,6 +363,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 9,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -331,6 +381,7 @@ function open_data_federal_extras_field_default_field_instances() {
     'label' => 'Homepage URL',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -344,6 +395,7 @@ function open_data_federal_extras_field_default_field_instances() {
       'enable_tokens' => 1,
       'rel_remove' => 'default',
       'title' => 'none',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -359,7 +411,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_language'
+  // Exported field_instance: 'node-dataset-field_odfe_language'.
   $field_instances['node-dataset-field_odfe_language'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -372,6 +424,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 13,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -399,7 +457,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_program_code'
+  // Exported field_instance: 'node-dataset-field_odfe_program_code'.
   $field_instances['node-dataset-field_odfe_program_code'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -412,6 +470,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 7,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -438,7 +502,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_rights'
+  // Exported field_instance: 'node-dataset-field_odfe_rights'.
   $field_instances['node-dataset-field_odfe_rights'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -451,6 +515,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 8,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -478,7 +548,7 @@ function open_data_federal_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dataset-field_odfe_system_of_records'
+  // Exported field_instance: 'node-dataset-field_odfe_system_of_records'.
   $field_instances['node-dataset-field_odfe_system_of_records'] = array(
     'bundle' => 'dataset',
     'default_value' => NULL,
@@ -492,6 +562,12 @@ function open_data_federal_extras_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 16,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -504,6 +580,7 @@ function open_data_federal_extras_field_default_field_instances() {
     'label' => 'System of Records',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -517,6 +594,7 @@ function open_data_federal_extras_field_default_field_instances() {
       'enable_tokens' => 1,
       'rel_remove' => 'default',
       'title' => 'none',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -542,7 +620,6 @@ function open_data_federal_extras_field_default_field_instances() {
   t('Data Quality');
   t('Data Standard');
   t('Homepage URL');
-  t('Indicates whether a dataset conforms to the agency’s information quality guidelines.');
   t('Is Part Of');
   t('Language');
   t('Program Code');

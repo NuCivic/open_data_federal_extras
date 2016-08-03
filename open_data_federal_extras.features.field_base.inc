@@ -10,14 +10,13 @@
 function open_data_federal_extras_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_odfe_bureau_code'
+  // Exported field_base: 'field_odfe_bureau_code'.
   $field_bases['field_odfe_bureau_code'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_bureau_code',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -33,21 +32,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_odfe_category'
+  // Exported field_base: 'field_odfe_category'.
   $field_bases['field_odfe_category'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_category',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -67,14 +58,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_odfe_conforms_to'
+  // Exported field_base: 'field_odfe_conforms_to'.
   $field_bases['field_odfe_conforms_to'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_conforms_to',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -97,21 +87,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_odfe_data_dictionary_type'
+  // Exported field_base: 'field_odfe_data_dictionary_type'.
   $field_bases['field_odfe_data_dictionary_type'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_data_dictionary_type',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -126,14 +108,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_odfe_data_quality'
+  // Exported field_base: 'field_odfe_data_quality'.
   $field_bases['field_odfe_data_quality'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_data_quality',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -143,8 +124,8 @@ function open_data_federal_extras_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'true' => 'TRUE',
-        'false' => 'FALSE',
+        'true' => 'Meets agency’s Information Quality Guidelines',
+        'false' => 'False',
       ),
       'allowed_values_function' => '',
     ),
@@ -152,21 +133,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_odfe_investment_uii'
+  // Exported field_base: 'field_odfe_investment_uii'.
   $field_bases['field_odfe_investment_uii'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_investment_uii',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -181,21 +154,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_odfe_is_part_of'
+  // Exported field_base: 'field_odfe_is_part_of'.
   $field_bases['field_odfe_is_part_of'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_is_part_of',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -210,14 +175,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_odfe_landing_page'
+  // Exported field_base: 'field_odfe_landing_page'.
   $field_bases['field_odfe_landing_page'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_landing_page',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -240,14 +204,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_odfe_language'
+  // Exported field_base: 'field_odfe_language'.
   $field_bases['field_odfe_language'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_language',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -263,14 +226,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_odfe_program_code'
+  // Exported field_base: 'field_odfe_program_code'.
   $field_bases['field_odfe_program_code'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_program_code',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -286,21 +248,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_odfe_rights'
+  // Exported field_base: 'field_odfe_rights'.
   $field_bases['field_odfe_rights'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_rights',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -315,14 +269,13 @@ function open_data_federal_extras_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_odfe_system_of_records'
+  // Exported field_base: 'field_odfe_system_of_records'.
   $field_bases['field_odfe_system_of_records'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_odfe_system_of_records',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
