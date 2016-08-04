@@ -8,6 +8,7 @@ dependencies[] = autocomplete_deluxe
 dependencies[] = ctools
 dependencies[] = dkan_dataset_content_types
 dependencies[] = features
+dependencies[] = features_override
 dependencies[] = field_group
 dependencies[] = link
 dependencies[] = list
